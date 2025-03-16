@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (usuarioEncontrado) {
             localStorage.setItem('usuarioAtual', email);
-            alert(`Bem-vindo, ${usuarioEncontrado.nome}!`);
+        
             window.location.href = 'registro-ponto.html';
         } else {
             alert('Login incorreto! Verifique seu e-mail e senha.');
