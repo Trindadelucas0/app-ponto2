@@ -1,0 +1,233 @@
+/* Reset de estilos para garantir consistência */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definindo a fonte padrão e o fundo gradiente */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #4e73df, #2c3e50); /* Gradiente em azul e cinza */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alterado para flex-start para alinhamento superior */
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
+    flex-direction: column; /* Coloca o conteúdo em coluna */
+}
+
+/* Container principal */
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.container:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Título do formulário */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Estilo do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo dos campos de entrada */
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+label {
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 600;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #4e73df; /* Cor de destaque mais suave */
+    background: #1f1f1f;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #2c3e50; /* Cor de foco mais suave */
+    background: #2a2a2a;
+}
+
+input::placeholder, select:placeholder {
+    color: #b0b0b0;
+}
+
+button {
+    background: #4e73df; /* Cor do botão azul sofisticada */
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #2c3e50; /* Cor de hover mais sóbria */
+    transform: scale(1.05);
+}
+
+/* Estilo do relatório (agora em baixo do formulário) */
+.relatorio {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin-top: 30px; /* Agora embaixo do formulário */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Título do relatório */
+h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Estilo para as informações do relatório */
+.relatorio p {
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+}
+
+.relatorio p span {
+    color: #4e73df; /* Cor de destaque para os valores */
+    font-weight: bold;
+}
+
+/* Estilo do rodapé */
+.footer {
+    color: #e0e0e0;
+    font-size: 0.8rem;
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    opacity: 0.7;
+}
+
+.footer a {
+    color: #4e73df; /* Cor de link mais destacada */
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade para telas menores (telas de telefone) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 25px;
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    input, select {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .relatorio {
+        margin-top: 30px;
+        padding: 15px;
+    }
+
+    .footer {
+        font-size: 0.7rem;
+    }
+}
+
+/* Responsividade para telas de médio porte (exemplo: tablets) */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    input, select {
+        font-size: 1rem;
+    }
+
+    button {
+        padding: 12px 18px;
+    }
+
+    .relatorio {
+        margin-top: 35px;
+        padding: 18px;
+    }
+
+    .footer {
+        font-size: 0.75rem;
+    }
+}
