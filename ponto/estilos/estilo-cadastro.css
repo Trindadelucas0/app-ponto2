@@ -1,119 +1,89 @@
-/* Global Styles */
+/* Estilo geral */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #1565c0, #0d47a1);
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
+    padding: 0;
+    background: linear-gradient(120deg, #1e1e2f, #1c1c1c);
+    color: #e0e0e0;
+    line-height: 1.8;
 }
 
 /* Container */
 .container {
-    background: white;
-    padding: 30px;
+    max-width: 500px;
+    margin: 40px auto;
+    background: #2c2c3e;
+    padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* Heading */
+/* Título */
 h2 {
-    color: #1565c0;
-    margin-bottom: 20px;
-    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #00ff88; /* Verde Neon */
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
     font-weight: bold;
+    color: #bbb;
 }
 
-/* Form Styles */
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.form-group label {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.form-group input {
-    width: 100%;
+input {
     padding: 12px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    background-color: #f9f9f9;
-}
-
-.form-group input:focus {
-    outline: none;
-    border-color: #1565c0;
-    background-color: #e3f2fd;
-}
-
-/* Button */
-button {
-    width: 100%;
-    padding: 15px;
-    background-color: #1565c0;
-    color: white;
+    margin-bottom: 20px;
     border: none;
-    border-radius: 8px;
-    font-size: 1.2rem;
+    border-radius: 5px;
+    background: #3a3a4a;
+    color: #fff;
+    font-size: 15px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s ease;
+}
+
+input:focus {
+    box-shadow: 0 0 8px #00ff88; /* Brilho futurista */
+    outline: none;
+}
+
+/* Botão */
+button {
+    background: linear-gradient(90deg, #00ff88, #00cc66);
+    color: #fff;
+    padding: 12px 0;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
 button:hover {
-    background-color: #0d47a1;
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #00cc66, #00ff88);
 }
 
-/* Footer */
+/* Rodapé */
 .footer {
+    text-align: center;
     margin-top: 20px;
-    font-size: 0.9rem;
 }
 
 .footer a {
-    color: #1565c0;
+    color: #00ff88;
     text-decoration: none;
 }
 
 .footer a:hover {
     text-decoration: underline;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-
-    h2 {
-        font-size: 1.8rem;
-    }
-
-    button {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 15px;
-    }
-
-    h2 {
-        font-size: 1.6rem;
-    }
-
-    button {
-        font-size: 1rem;
-    }
 }

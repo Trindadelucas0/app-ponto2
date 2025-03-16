@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <h2>Registro de Ponto</h2>
-        <form id="ponto-form" action="/backend-endpoint" method="POST">
+        <form id="ponto-form">
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
@@ -45,22 +45,12 @@
                 <input type="file" id="foto" name="foto" accept="image/*" multiple>
             </div>
 
-            <img id="imagem" src="" alt="Foto do registro" style="max-width: 200px; margin-top: 10px;">
             <button type="submit" id="botao">Registrar Ponto</button>
         </form>
     </div>
-    <button type="button" id="regis" >ir para registros</button>
-    
-    <div class="relatorio">
-        <h3>Relatório de Trabalho</h3>
-        <p><strong>Total de horas trabalhadas:</strong> <span id="total-horas">0</span>h</p>
-        <p><strong>Dias trabalhados:</strong> <span id="dias-trabalhados">0</span></p>
-        <p><strong>Horas extras:</strong> <span id="horas-extras">0</span>h</p>
-    </div>
+    <button id="ver-registros-btn">Ver Registros</button>
 
-    <div class="footer">&copy; 2025 Registro de Ponto Pro - Todos os direitos reservados.</div>
     <script src="/Ponto/JS/registro.js"></script>
-    <script src="/ponto/JS/tabela.js"></script>
 </body>
 
 </html>

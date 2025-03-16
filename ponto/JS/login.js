@@ -5,13 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = document.getElementById('email').value;
         const senha = document.getElementById('senha').value;
 
-        
         const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
-        
         const usuarioEncontrado = usuarios.find(usuario => usuario.email === email && usuario.senha === senha);
 
         if (usuarioEncontrado) {
+            localStorage.setItem('usuarioAtual', email);
             alert(`Bem-vindo, ${usuarioEncontrado.nome}!`);
             window.location.href = 'registro-ponto.html';
         } else {

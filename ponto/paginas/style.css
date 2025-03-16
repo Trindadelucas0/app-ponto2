@@ -1,0 +1,83 @@
+/* Estilo geral */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(130deg, #a1a1d2, #121213);
+    color: #e0e0e0;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #1e1e2a; /* Fundo escuro elegante */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); /* Sombra tecnológica */
+    transition: transform 0.3s ease; /* Feedback ao interagir */
+}
+
+thead {
+    background: linear-gradient(90deg, #00cc66, #00ff88); /* Gradiente brilhante */
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 16px;
+    text-align: left;
+    border: 1px solid #7272b1; /* Linhas suaves */
+    color: #f5f5f5;
+}
+
+th {
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background: #48487a; /* Cor diferenciada para as linhas pares */
+}
+
+tbody tr:nth-child(odd) {
+    background: #6a6a98; /* Linha ímpar */
+}
+
+tbody tr:hover {
+    background: #353545; /* Efeito de destaque */
+    cursor: pointer;
+}
+
+/* Feedback visual ao interagir */
+td {
+    transition: background-color 0.3s ease;
+}
+
+td:hover {
+    background: rgba(94, 164, 129, 0.2); /* Realce ao passar o mouse */
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    table {
+        font-size: 14px;
+        margin: 0 auto;
+    }
+
+    th, td {
+        padding: 12px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
