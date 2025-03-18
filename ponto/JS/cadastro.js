@@ -5,12 +5,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const nome = document.getElementById('nome').value;
         const email = document.getElementById('email').value;
         const senha = document.getElementById('senha').value;
+        const erro = document.getElementById("erro");
 
         if (!nome || !email || !senha) {
             alert('Por favor, preencha todos os campos!');
             return;
         }
-
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!regexEmail.test(email)) {
+            erro.textContent = "E-mail inválido! Digite um e-mail correto.";
+            return;
+        }
+        erro.textContent = "";
         let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
         const emailExistente = usuarios.some(usuario => usuario.email === email);
