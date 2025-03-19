@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             linha.innerHTML = `
                 <td>${registro.data}</td>
                 <td>${registro.tipoPonto}</td>
-                <td>${registro.hora}</td>
+                <td>${registro.hora}</td>        
             `;
 
             // Cria a célula para exibir as fotos e links de download
