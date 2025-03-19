@@ -50,4 +50,93 @@ document.addEventListener('DOMContentLoaded', function() {
             tabela.appendChild(linha);
         });
     }
+
+    // Função para calcular as horas trabalhadas, extras e faltantes
+    document.getElementById('calcular-horas').addEventListener('click', function() {
+        const cargaHorariaDiaria = document.getElementById('carga-horaria').value.trim();
+        if (!cargaHorariaDiaria) {
+            alert('Por favor, insira a carga horária diária.');
+            return;
+        }
+
+        const [cargaHorariaHora, cargaHorariaMinuto] = cargaHorariaDiaria.split(':').map(Number);
+        const cargaHorariaTotal = cargaHorariaHora * 60 + cargaHorariaMinuto; // Convertendo para minutos
+
+        const registrosDoDia = agruparRegistrosPorData(registrosDoUsuario);
+        const resultados = calcularHorasTrabalhadas(registrosDoDia, cargaHorariaTotal);
+
+        // Exibe os resultados
+        document.getElementById('horas-trabalhadas').textContent = resultados.horasTrabalhadas;
+        document.getElementById('horas-extras').textContent = resultados.horasExtras;
+        document.getElementById('horas-faltantes').textContent = resultados.horasFaltantes;
+    });
+
+    // Função para agrupar registros por data
+    function agruparRegistrosPorData(registros) {
+        const registrosPorData = {};
+        registros.forEach(registro => {
+            if (!registrosPorData[registro.data]) {
+                registrosPorData[registro.data] = [];
+            }
+            registrosPorData[registro.data].push(registro);
+        });
+        return registrosPorData;
+    }
+
+    // Função para calcular horas trabalhadas, extras e faltantes
+    function calcularHorasTrabalhadas(registrosPorData, cargaHorariaTotal) {
+        let totalHorasTrabalhadas = 0;
+        let totalHorasExtras = 0;
+        let totalHorasFaltantes = 0;
+
+        Object.keys(registrosPorData).forEach(data => {
+            const registrosDoDia = registrosPorData[data];
+            const horasDoDia = calcularHorasDoDia(registrosDoDia);
+
+            if (horasDoDia > cargaHorariaTotal) {
+                totalHorasExtras += horasDoDia - cargaHorariaTotal;
+            } else if (horasDoDia < cargaHorariaTotal) {
+                totalHorasFaltantes += cargaHorariaTotal - horasDoDia;
+            }
+
+            totalHorasTrabalhadas += horasDoDia;
+        });
+
+        return {
+            horasTrabalhadas: formatarHoras(totalHorasTrabalhadas),
+            horasExtras: formatarHoras(totalHorasExtras),
+            horasFaltantes: formatarHoras(totalHorasFaltantes)
+        };
+    }
+
+    // Função para calcular as horas trabalhadas em um dia
+    function calcularHorasDoDia(registrosDoDia) {
+        let totalMinutos = 0;
+        let ultimoTipo = '';
+        let ultimaHora = '';
+    
+        registrosDoDia.sort((a, b) => a.hora.localeCompare(b.hora)).forEach(registro => {
+            if (ultimoTipo === 'entrada' && registro.tipoPonto === 'almoco') {
+                const [horaInicio, minutoInicio] = ultimaHora.split(':').map(Number);
+                const [horaFim, minutoFim] = registro.hora.split(':').map(Number);
+                totalMinutos += (horaFim - horaInicio) * 60 + (minutoFim - minutoInicio);
+            }
+            if (ultimoTipo === 'retorno' && registro.tipoPonto === 'saida') {
+                const [horaInicio, minutoInicio] = ultimaHora.split(':').map(Number);
+                const [horaFim, minutoFim] = registro.hora.split(':').map(Number);
+                totalMinutos += (horaFim - horaInicio) * 60 + (minutoFim - minutoInicio);
+            }
+            ultimoTipo = registro.tipoPonto;
+            ultimaHora = registro.hora;
+        });
+    
+        return totalMinutos;
+    }
+
+    // Função para formatar minutos no formato HH:MM
+    function formatarHoras(minutos) {
+        const horas = Math.floor(minutos / 60);
+        const mins = minutos % 60;
+        return `${String(horas).padStart(2, '0')}:${String(mins).padStart(2, '0')}`;
+    }
 });
