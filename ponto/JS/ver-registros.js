@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             linha.innerHTML = `
                
             <td>${formatarData(registro.data)}</td>
-                <td>${registro.tipoPonto}</td>
+            <td>${registro.tipoPonto}</td>
             <td>${registro.hora}</td>
 
     
