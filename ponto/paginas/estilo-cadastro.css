@@ -2,7 +2,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     background: linear-gradient(120deg, #1e1e2f, #1c1c1c);
     color: #e0e0e0;
     line-height: 1.8;
@@ -11,9 +11,9 @@ body {
 /* Container */
 .container {
     max-width: 500px;
-    margin: 40px auto;
+    margin: 20px auto;
     background: #2c2c3e;
-    padding: 25px;
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
@@ -21,8 +21,8 @@ body {
 /* Título */
 h2 {
     text-align: center;
-    margin-bottom: 30px;
-    font-size: 28px;
+    margin-bottom: 20px;
+    font-size: 24px;
     color: #00ff88; /* Verde Neon */
 }
 
@@ -40,7 +40,7 @@ label {
 
 input {
     padding: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     border: none;
     border-radius: 5px;
     background: #3a3a4a;
@@ -48,6 +48,7 @@ input {
     font-size: 15px;
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
     transition: box-shadow 0.3s ease;
+    width: 100%; /* Ocupa toda a largura */
 }
 
 input:focus {
@@ -66,6 +67,7 @@ button {
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.3s ease, background 0.3s ease;
+    width: 100%; /* Ocupa toda a largura */
 }
 
 button:hover {
@@ -86,4 +88,51 @@ button:hover {
 
 .footer a:hover {
     text-decoration: underline;
+}
+
+/* Responsividade para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input {
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 0;
+    }
+}
+
+/* Responsividade para desktop */
+@media screen and (min-width: 769px) {
+    .container {
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    input {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 15px 0;
+        width: auto; /* Largura automática */
+    }
 }

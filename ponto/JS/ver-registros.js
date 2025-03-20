@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <td>${formatarData(registro.data)}</td>
             <td>${registro.tipoPonto}</td>
             <td>${registro.hora}</td>
-
+            
     
             `;
 
