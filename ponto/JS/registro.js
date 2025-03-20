@@ -8,7 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         const nome = document.getElementById('nome').value.trim();
-        const data = document.getElementById('data').value.trim();
+        
+        function formatarData(data) {
+            const [ano, mes, dia] = data.split('-'); // Supondo que a entrada esteja no formato YYYY-MM-DD
+            const dataObj = new Date(`${ano}-${mes}-${dia}`);
+            const opcoes = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
+            return dataObj.toLocaleDateString('pt-BR', opcoes);
+        }
+        const data = formatarData(document.getElementById('data').value.trim());
+        
         const tipoPonto = document.getElementById('tipo-ponto').value.trim();
         const hora = document.getElementById('hora').value.trim();
         const foto = document.getElementById('foto').files;

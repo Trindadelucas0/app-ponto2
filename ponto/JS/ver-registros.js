@@ -17,9 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
         registrosDoUsuario.forEach(registro => {
             const linha = document.createElement('tr');
             linha.innerHTML = `
-                <td>${registro.data}</td>
+               
+            <td>${formatarData(registro.data)}</td>
                 <td>${registro.tipoPonto}</td>
-                <td>${registro.hora}</td>        
+            <td>${registro.hora}</td>
+
+    
             `;
 
             // Cria a célula para exibir as fotos e links de download
@@ -50,6 +53,18 @@ document.addEventListener('DOMContentLoaded', function() {
             tabela.appendChild(linha);
         });
     }
+    function formatarData(data) {
+        const partes = data.split('-'); // Verifica se a data está no formato esperado YYYY-MM-DD
+        if (partes.length === 3) {
+            const [ano, mes, dia] = partes;
+            const dataObj = new Date(ano, mes - 1, dia); // Mês começa do 0 em JavaScript
+            const opcoes = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
+            return dataObj.toLocaleDateString('pt-BR', opcoes);
+        }
+        return data; // Retorna a data original caso não esteja no formato esperado
+    }
+    
+    
 
     // Função para calcular as horas trabalhadas, extras e faltantes
     document.getElementById('calcular-horas').addEventListener('click', function() {
